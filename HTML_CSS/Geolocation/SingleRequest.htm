@@ -34,8 +34,8 @@
 		</tr>
 		<tr>
 			<td>
-				точность (высота)
-			</td>
+				высота
+			</td>+
 			<td>
 				<p id="altitudeAccuracy">
 				</p>
@@ -85,7 +85,7 @@
 		function handleError(error) {
 			switch (error.code) {
 				case 0
-					updateStatus("ри попытке определить местоположение возникла ошибка: " + error.message);
+					updateStatus("При попытке определить местоположение возникла ошибка: " + error.message);
 					break;
 				case 1
 					update statusStatus("Пользователь запретил получение данных о местоположении.");
