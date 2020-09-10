@@ -111,6 +111,24 @@ game.ball = {
 		if (this.dy) {
 			this.y += this.dy;
 		}
+		if (this.dx) {
+			this.x += this.dx;
+		}
+	},
+	collide(element) {
+		let x = this.x + this.dx;
+		let y = this.y + this.dy;
+
+		if (x + this.width > element.x &&
+			x	< element.x + element.width &&
+			y + this.height > element.y &&
+			y < element.y + element.height) {
+				return true;
+			}
+		return false;
+	},
+	bumpBlock(block) {
+		this.dy *= -1;
 	}
 };
 
