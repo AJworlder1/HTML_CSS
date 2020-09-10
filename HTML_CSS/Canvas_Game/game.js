@@ -89,6 +89,7 @@ let game = {
 		});
 	},
 	render() {
+		this.ctx.clearRect(0, 0, this.width, this.height);
 		this.ctx.drawImage(this.sprites.background, 0, 0);
 		this.ctx.drawImage(this.sprites.ball, 0, 0, this.ball.width, this.ball.height,
 			this.ball.x, this.ball.y, this.ball.width, this.ball.height);
@@ -113,6 +114,7 @@ let game = {
 };
 
 game.ball = {
+	dx: 0,
 	dy: 0,
 	velocity: 3,
 	x: 320,
@@ -158,6 +160,8 @@ game.platform = {
 	dx: 0,
 	x: 280,
 	y: 300,
+	width: 100,
+	height: 14,
 	ball: game.ball,
 	fire() {
 		if (this.ball) {
