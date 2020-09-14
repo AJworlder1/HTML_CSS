@@ -23,6 +23,7 @@ let game = {
     },
     sounds: {
         bump: null,
+        loss: null,
     },
     initCanvasSize() {
         let realWidth = window.innerWidth * window.devicePixelRatio;
@@ -165,6 +166,7 @@ let game = {
     },
     end(message) {
         this.running = false;
+        this.sounds.loss.play();
         alert(message);
         window.location.reload();
     },
