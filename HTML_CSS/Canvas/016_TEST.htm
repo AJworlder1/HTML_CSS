@@ -22,13 +22,13 @@
 				context.clearRect(0, 0, context.canvas.width, context.canvas.height);
 
 				var angle = $("angle").value;
-				angle = angle * Math.PI / 180;
+				angle = angle * 180;
 
 				// сохранение состояния полотна и начала системы координат
 				context.save();
 				// трансформация вращения
 				context.rotate(angle);
-				context.drawImage(img, -1000, -1000, 500, 500);
+				context.drawImage(img, -1500, -1500, 750, 750);
 				// воссталновление сохранённого состояния полотна 
 				conext.restore();
 			}

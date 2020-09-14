@@ -11,10 +11,10 @@ let game = {
     ball: null,
     blocks: [],
     score: 0,
-    rows: 4,
-    cols: 8,
-    width: 640,
-    height: 360,
+    rows: 6,
+    cols: 9,
+    width: 680,
+    height: 340,
     sprites: {
         background: null,
         ball: null,
@@ -26,7 +26,12 @@ let game = {
     },
     init() {
         this.ctx = document.getElementById("mycanvas").getContext("2d");
+        this.setTextFont();
         this.setEvents();
+    },
+    setTextFont() {
+        this.ctx.font = "20px Arial";
+        this.ctx.fillStyle = "#FFFFFF";
     },
     setEvents() {
         window.addEventListener("keydown", e => {
@@ -93,7 +98,7 @@ let game = {
         ++this.score;
 
         if (this.score >= this.blocks.length) {
-            this.end("Вы победили");
+            this.end("He voititte");
         }
     },
     collideBlocks() {
@@ -123,9 +128,11 @@ let game = {
     render() {
         this.ctx.clearRect(0, 0, this.width, this.height);
         this.ctx.drawImage(this.sprites.background, 0, 0);
-        this.ctx.drawImage(this.sprites.ball, 0, 0, this.ball.width, this.ball.height, this.ball.x, this.ball.y, this.ball.width, this.ball.height);
+        this.ctx.drawImage(this.sprites.ball, 0, 0, this.ball.width, this.ball.height, 
+            this.ball.x, this.ball.y, this.ball.width, this.ball.height);
         this.ctx.drawImage(this.sprites.platform, this.platform.x, this.platform.y);
         this.renderBlocks();
+        this.ctx.fillText("Score: " + this.score, 15, 20);
     },
     renderBlocks() {
         for (let block of this.blocks) {
@@ -210,7 +217,7 @@ game.ball = {
             this.dy = this.velocity;
             game.sounds.bump.play();
         } else if (ballBottom > worldBottom) {
-            game.end("Вы проиграли");
+            game.end("He hävisitte");
         }
     },
     bumpBlock(block) {
