@@ -24,6 +24,7 @@ let game = {
     sounds: {
         bump: null,
         loss: null,
+        win: null,
     },
     initCanvasSize() {
         let realWidth = window.innerWidth * window.devicePixelRatio;
@@ -115,7 +116,7 @@ let game = {
         ++this.score;
 
         if (this.score >= this.blocks.length) {
-            this.end("Win")
+            this.win("Win")
         }
     },
     collideBlocks() {
@@ -167,6 +168,12 @@ let game = {
     end(message) {
         this.running = false;
         this.sounds.loss.play();
+        alert(message);
+        window.location.reload();
+    },
+    win(message) {
+        this.running = false;
+        this.sounds.win.play();
         alert(message);
         window.location.reload();
     },
