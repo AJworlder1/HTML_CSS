@@ -11,8 +11,8 @@ let game = {
     ball: null,
     blocks: [],
     score: 0,
-    rows: 1,
-    cols: 1,
+    rows: 6,
+    cols: 10,
     width: 1280,
     height: 720,
     sprites: {
@@ -116,7 +116,7 @@ let game = {
         ++this.score;
 
         if (this.score >= this.blocks.length) {
-            this.win("Ti ne loh")
+            this.win("Haha obmanul")
         }
     },
     collideBlocks() {
@@ -149,7 +149,7 @@ let game = {
         this.ctx.drawImage(this.sprites.ball, this.ball.frame * this.ball.width, 0, this.ball.width, this.ball.height, this.ball.x, this.ball.y, this.ball.width, this.ball.height);
         this.ctx.drawImage(this.sprites.platform, this.platform.x, this.platform.y);
         this.renderBlocks();
-        this.ctx.fillText("Ochechi: " + this.score, 70, 46);
+        this.ctx.fillText("Kuradi ochki: " + this.score, 70, 46);
     },
     renderBlocks() {
         for (let block of this.blocks) {
